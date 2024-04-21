@@ -1,0 +1,46 @@
+def create_file():
+    try:
+        # file named "my_file.txt" in write mode ('w')
+        with open("my_file.txt", "w") as file:
+          
+            file.write("Line one: Hello, World! This is my first file handling in python\n")
+            file.write("Line two: I love coding!\n")
+            file.write("Line three: Python is awesome!\n")
+        print("File created successfully.")
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Error: {e}")
+
+def read_file():
+    try:
+        # Open "my_file.txt" in read mode ('r')
+        with open("my_file.txt", "r") as file:
+            
+            content = file.read()
+            print("Content of 'my_file.txt':")
+            print(content)
+    except FileNotFoundError:
+        print("Error: File not found.")
+    except PermissionError:
+        print("Error: Permission denied.")
+
+def append_file():
+    try:
+        # Open "my_file.txt" in append mode ('a')
+        with open("my_file.txt", "a") as file:
+            # Appendind three additional lines of text to the existing content
+            file.write("Line 4: It is the best programming language.\n")
+            file.write("Line 5: I practise daily.\n")
+            file.write("Line 6: Python language is versatile!\n")
+        print("Content appended successfully.")
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    # Creating the file
+    create_file()
+
+    # Read and display the contents of the file
+    read_file()
+
+    # Appending the additional content to the file
+    append_file()
